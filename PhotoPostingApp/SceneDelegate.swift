@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,6 +18,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        let currentUser = Auth.auth().currentUser
+        
+        // allow user to stay signed in even if they close and reopen the app
+        if currentUser != nil {
+            let board = UIStoryboard(name: "Main", bundle: nil)
+            // create specified view controller from storyboard and initialize using custom initialization code
+            let tabBar = board.instantiateViewController(identifier: "tabBar") as! UITabBarController
+            // takes the start arrow from View Controller and moves it to point to the Tab Bar Controller if a user has signed in before
+            // takes previously signed in user directly to Feed
+            window?.rootViewController = tabBar
+        }
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
