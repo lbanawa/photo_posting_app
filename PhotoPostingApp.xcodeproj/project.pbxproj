@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,9 @@
 		9CC17DAB245F9933002497B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CC17DAA245F9933002497B5 /* Assets.xcassets */; };
 		9CC17DAE245F9933002497B5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CC17DAC245F9933002497B5 /* LaunchScreen.storyboard */; };
 		9CC17DB6245F9BFB002497B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CC17DB5245F9BFB002497B5 /* GoogleService-Info.plist */; };
+		9CF0474024605620006C9CD5 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF0473F24605620006C9CD5 /* FeedViewController.swift */; };
+		9CF047422460563F006C9CD5 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF047412460563F006C9CD5 /* UploadViewController.swift */; };
+		9CF0474424605660006C9CD5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF0474324605660006C9CD5 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		9CC17DAD245F9933002497B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9CC17DAF245F9933002497B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CC17DB5245F9BFB002497B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9CF0473F24605620006C9CD5 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		9CF047412460563F006C9CD5 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		9CF0474324605660006C9CD5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BD460C30DEDA27CAC87A44E4 /* Pods_PhotoPostingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoPostingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9D0BDB1C6FAA50A9E38663 /* Pods-PhotoPostingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPostingApp.release.xcconfig"; path = "Target Support Files/Pods-PhotoPostingApp/Pods-PhotoPostingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +74,9 @@
 				9CC17DA1245F9932002497B5 /* AppDelegate.swift */,
 				9CC17DA3245F9932002497B5 /* SceneDelegate.swift */,
 				9CC17DA5245F9932002497B5 /* ViewController.swift */,
+				9CF0473F24605620006C9CD5 /* FeedViewController.swift */,
+				9CF047412460563F006C9CD5 /* UploadViewController.swift */,
+				9CF0474324605660006C9CD5 /* SettingsViewController.swift */,
 				9CC17DA7245F9932002497B5 /* Main.storyboard */,
 				9CC17DAA245F9933002497B5 /* Assets.xcassets */,
 				9CC17DAC245F9933002497B5 /* LaunchScreen.storyboard */,
@@ -83,7 +92,6 @@
 				4215736A4B611DC27791C590 /* Pods-PhotoPostingApp.debug.xcconfig */,
 				CF9D0BDB1C6FAA50A9E38663 /* Pods-PhotoPostingApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -212,8 +220,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CC17DA6245F9932002497B5 /* ViewController.swift in Sources */,
+				9CF047422460563F006C9CD5 /* UploadViewController.swift in Sources */,
 				9CC17DA2245F9932002497B5 /* AppDelegate.swift in Sources */,
+				9CF0474024605620006C9CD5 /* FeedViewController.swift in Sources */,
 				9CC17DA4245F9932002497B5 /* SceneDelegate.swift in Sources */,
+				9CF0474424605660006C9CD5 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
