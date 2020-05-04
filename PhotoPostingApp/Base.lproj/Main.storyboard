@@ -14,14 +14,59 @@
                     <view key="view" contentMode="scaleToFill" id="NGO-M6-BMw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selectimage1" translatesAutoresizingMaskIntoConstraints="NO" id="bLp-hd-yNf">
+                                <rect key="frame" x="43" y="111" width="328" height="335"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="328" id="JZn-ZV-T5v"/>
+                                    <constraint firstAttribute="height" constant="335" id="oLa-0p-vQJ"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bsp-vy-k1q">
+                                <rect key="frame" x="43" y="486" width="329" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="MYf-L9-Yn4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-hf-138">
+                                <rect key="frame" x="158" y="551" width="99" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="SUJ-f5-QlC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="postButtonClicked:" destination="Bma-Qg-kfU" eventType="touchUpInside" id="po1-6a-wuU"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ACd-hf-138" firstAttribute="leading" secondItem="dEx-Zu-70h" secondAttribute="leading" constant="158" id="Czu-AV-OMK"/>
+                            <constraint firstItem="Bsp-vy-k1q" firstAttribute="centerX" secondItem="ACd-hf-138" secondAttribute="centerX" id="EEH-No-qAp"/>
+                            <constraint firstItem="bLp-hd-yNf" firstAttribute="leading" secondItem="Bsp-vy-k1q" secondAttribute="leading" id="GoJ-ro-Qua"/>
+                            <constraint firstItem="bLp-hd-yNf" firstAttribute="trailing" secondItem="Bsp-vy-k1q" secondAttribute="trailing" constant="-1" id="WWd-8t-teU"/>
+                            <constraint firstItem="bLp-hd-yNf" firstAttribute="leading" secondItem="dEx-Zu-70h" secondAttribute="leading" constant="43" id="gS2-P8-eJn"/>
+                            <constraint firstItem="bLp-hd-yNf" firstAttribute="top" secondItem="dEx-Zu-70h" secondAttribute="top" constant="67" id="hRb-4G-Lxr"/>
+                            <constraint firstItem="bLp-hd-yNf" firstAttribute="centerX" secondItem="NGO-M6-BMw" secondAttribute="centerX" id="rJ4-ot-Bu3"/>
+                            <constraint firstItem="ACd-hf-138" firstAttribute="top" secondItem="Bsp-vy-k1q" secondAttribute="bottom" constant="31" id="wcH-yU-ZJZ"/>
+                            <constraint firstItem="dEx-Zu-70h" firstAttribute="bottom" secondItem="ACd-hf-138" secondAttribute="bottom" constant="207" id="yZt-6p-joU"/>
+                            <constraint firstItem="Bsp-vy-k1q" firstAttribute="top" secondItem="bLp-hd-yNf" secondAttribute="bottom" constant="40" id="zVM-GB-HVc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dEx-Zu-70h"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Upload" image="u.circle.fill" catalog="system" id="hb5-s7-7f6"/>
+                    <connections>
+                        <outlet property="captionText" destination="Bsp-vy-k1q" id="6bS-jK-OKg"/>
+                        <outlet property="imageView" destination="bLp-hd-yNf" id="AnJ-Jf-IUm"/>
+                        <outlet property="postButton" destination="ACd-hf-138" id="B0P-y4-qZ2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8F-Ml-dYG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-519" y="304"/>
+            <point key="canvasLocation" x="-520.28985507246375" y="303.34821428571428"/>
         </scene>
         <!--Settings-->
         <scene sceneID="T3y-fb-GVU">
@@ -182,6 +227,7 @@
     <resources>
         <image name="f.circle.fill" catalog="system" width="128" height="121"/>
         <image name="s.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="selectimage1" width="330" height="336"/>
         <image name="u.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
