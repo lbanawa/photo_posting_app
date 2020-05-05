@@ -38,6 +38,14 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dismiss(animated: true, completion: nil)
     }
     
+    func makeAlert(titleInput:String, messageInput:String) {
+        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+        let okButton =  UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
 
     @IBAction func postButtonClicked(_ sender: Any) {
         // Storage supports uploading and downloading objects -- use to upload photos
@@ -50,17 +58,39 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
             
-            let imageReference = photosFolder.child("image.jpg")
+            // create a unique id for each picture
+            let uuid = UUID().uuidString
+            
+            let imageReference = photosFolder.child("\(uuid).jpg")
             imageReference.putData(data, metadata: nil) { (metadata, error) in
                 if error != nil {
-                    print(error?.localizedDescription)
+                    self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
+                    
                 } else {
                     
                     imageReference.downloadURL { (url, error) in
                         if error == nil {
                             
                             let imageURL = url?.absoluteString
-                            print(imageURL)
+                            
+                            // store our information to Firestore Database
+                            let firestoreDatabase = Firestore.firestore() // instance of the firestore class -- can be used to download and upload data
+                            
+                            // DocumentReference refers to a document location in the database and can be used to read, write, or listen to the location
+                            var firestoreReference : DocumentReference? = nil
+                            
+                            let firestorePost = ["imageURL" : imageURL!, "postedBy" : Auth.auth().currentUser!.email!, "postComment" : self.captionText.text!, "date" : "date", "likes" : 0] as [String : Any]
+                            
+                            // .collection refers to the collection at a specified path in the database
+                            // .addDocument adds documents to the collection with an automatically assigned document ID
+                            firestoreReference = firestoreDatabase.collection("Posts").addDocument(data: firestorePost, completion: { (error) in
+                                if error != nil {
+                                    
+                                    self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
+                                    
+                                    
+                                }
+                            })
                             
                         }
                     }
