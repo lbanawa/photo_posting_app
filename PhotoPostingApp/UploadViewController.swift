@@ -38,6 +38,14 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.dismiss(animated: true, completion: nil)
     }
     
+    func makeAlert(titleInput:String, messageInput:String) {
+        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+        let okButton =  UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(okButton)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
 
     @IBAction func postButtonClicked(_ sender: Any) {
         // Storage supports uploading and downloading objects -- use to upload photos
@@ -50,17 +58,22 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
             
-            let imageReference = photosFolder.child("image.jpg")
+            // create a unique id for each picture
+            let uuid = UUID().uuidString
+            
+            let imageReference = photosFolder.child("\(uuid).jpg")
             imageReference.putData(data, metadata: nil) { (metadata, error) in
                 if error != nil {
-                    print(error?.localizedDescription)
+                    self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
+                    
                 } else {
                     
                     imageReference.downloadURL { (url, error) in
                         if error == nil {
                             
                             let imageURL = url?.absoluteString
-                            print(imageURL)
+                            
+                            // add image to database
                             
                         }
                     }
