@@ -79,7 +79,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                             // DocumentReference refers to a document location in the database and can be used to read, write, or listen to the location
                             var firestoreReference : DocumentReference? = nil
                             
-                            let firestorePost = ["imageURL" : imageURL!, "postedBy" : Auth.auth().currentUser!.email!, "postComment" : self.captionText.text!, "date" : "date", "likes" : 0] as [String : Any]
+                            let firestorePost = ["imageURL" : imageURL!, "postedBy" : Auth.auth().currentUser!.email!, "postComment" : self.captionText.text!, "date" : FieldValue.serverTimestamp(), "likes" : 0] as [String : Any]
                             
                             // .collection refers to the collection at a specified path in the database
                             // .addDocument adds documents to the collection with an automatically assigned document ID
@@ -88,6 +88,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                                     
                                     self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
                                     
+                                } else {
+                                    
+                                    self.imageView.image = UIImage(named: "selectimage1.png")
+                                    self.captionText.text = ""
+                                    self.tabBarController?.selectedIndex = 0
                                     
                                 }
                             })
