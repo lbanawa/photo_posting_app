@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 
 class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -40,6 +41,13 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
             } else {
                 
                 if snapshot?.isEmpty != true && snapshot != nil {
+                    
+                    // prevents duplicates from showing on feed
+                    self.userImageArray.removeAll(keepingCapacity: false)
+                    self.userEmailArray.removeAll(keepingCapacity: false)
+                    self.userCaptionArray.removeAll(keepingCapacity: false)
+                    self.likeArray.removeAll(keepingCapacity: false)
+                    
                     // find documents with snapshot -- snapshot.documents gives an array of documents in the Posts collection
                     for document in snapshot!.documents {
                         let documentID = document.documentID
@@ -83,7 +91,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.usernameLabel.text = userEmailArray[indexPath.row]
         cell.likeLabel.text = String(likeArray[indexPath.row])
         cell.captionLabel.text = userCaptionArray[indexPath.row]
-        cell.userImageView.image = UIImage(named: "selectimage1.png")
+        cell.userImageView.sd_setImage(with: URL(string: self.userImageArray[indexPath.row]))
         return cell
     }
     
