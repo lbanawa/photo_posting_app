@@ -18,6 +18,7 @@
 		9CF0474024605620006C9CD5 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF0473F24605620006C9CD5 /* FeedViewController.swift */; };
 		9CF047422460563F006C9CD5 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF047412460563F006C9CD5 /* UploadViewController.swift */; };
 		9CF0474424605660006C9CD5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF0474324605660006C9CD5 /* SettingsViewController.swift */; };
+		9CF047462461C6B3006C9CD5 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF047452461C6B3006C9CD5 /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9CF0473F24605620006C9CD5 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		9CF047412460563F006C9CD5 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		9CF0474324605660006C9CD5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9CF047452461C6B3006C9CD5 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		BD460C30DEDA27CAC87A44E4 /* Pods_PhotoPostingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoPostingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF9D0BDB1C6FAA50A9E38663 /* Pods-PhotoPostingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoPostingApp.release.xcconfig"; path = "Target Support Files/Pods-PhotoPostingApp/Pods-PhotoPostingApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				9CF0473F24605620006C9CD5 /* FeedViewController.swift */,
 				9CF047412460563F006C9CD5 /* UploadViewController.swift */,
 				9CF0474324605660006C9CD5 /* SettingsViewController.swift */,
+				9CF047452461C6B3006C9CD5 /* FeedCell.swift */,
 				9CC17DA7245F9932002497B5 /* Main.storyboard */,
 				9CC17DAA245F9933002497B5 /* Assets.xcassets */,
 				9CC17DAC245F9933002497B5 /* LaunchScreen.storyboard */,
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF047462461C6B3006C9CD5 /* FeedCell.swift in Sources */,
 				9CC17DA6245F9932002497B5 /* ViewController.swift in Sources */,
 				9CF047422460563F006C9CD5 /* UploadViewController.swift in Sources */,
 				9CC17DA2245F9932002497B5 /* AppDelegate.swift in Sources */,
