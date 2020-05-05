@@ -180,6 +180,12 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCj-5C-4ot">
+                                                    <rect key="frame" x="348" y="370" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottomMargin" secondItem="lfW-b7-IEG" secondAttribute="bottom" constant="13" id="2S0-js-NEt"/>
@@ -192,13 +198,16 @@
                                                 <constraint firstItem="vpp-r6-d9y" firstAttribute="leading" secondItem="WcH-F7-869" secondAttribute="leading" id="Tgh-0F-5L5"/>
                                                 <constraint firstItem="wrq-Wh-RZb" firstAttribute="leading" secondItem="9gf-l2-w1K" secondAttribute="leading" id="XXP-sX-U3i"/>
                                                 <constraint firstItem="9gf-l2-w1K" firstAttribute="leading" secondItem="vpp-r6-d9y" secondAttribute="leading" id="a0K-US-UKP"/>
+                                                <constraint firstItem="gCj-5C-4ot" firstAttribute="trailing" secondItem="WcH-F7-869" secondAttribute="trailing" id="dcF-JE-7N0"/>
                                                 <constraint firstItem="wrq-Wh-RZb" firstAttribute="trailing" secondItem="9gf-l2-w1K" secondAttribute="trailing" id="hML-Rz-swD"/>
                                                 <constraint firstItem="9gf-l2-w1K" firstAttribute="trailing" secondItem="WcH-F7-869" secondAttribute="trailing" id="j1I-RW-Aqk"/>
                                                 <constraint firstItem="wrq-Wh-RZb" firstAttribute="centerX" secondItem="eSY-82-Q68" secondAttribute="centerX" id="lmg-Lt-SKS"/>
+                                                <constraint firstItem="gCj-5C-4ot" firstAttribute="centerY" secondItem="vpp-r6-d9y" secondAttribute="centerY" id="p2i-tu-Iyc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="captionLabel" destination="WcH-F7-869" id="O3z-SQ-nvv"/>
+                                            <outlet property="documentIdLabel" destination="gCj-5C-4ot" id="RGN-7l-ARf"/>
                                             <outlet property="likeLabel" destination="vpp-r6-d9y" id="30n-8F-cju"/>
                                             <outlet property="userImageView" destination="9gf-l2-w1K" id="Tw2-w5-0sL"/>
                                             <outlet property="usernameLabel" destination="wrq-Wh-RZb" id="qaN-kn-121"/>

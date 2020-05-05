@@ -17,6 +17,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     var userCaptionArray = [String]()
     var likeArray = [Int]()
     var userImageArray = [String]()
+    var documentIdArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         let firestoreDatabase = Firestore.firestore()
         
         // Attaches a listener for QuerySnapshot events -- listens for changes made to data
-        firestoreDatabase.collection("Posts").addSnapshotListener { (snapshot, error) in
+        // order posts by date in descending order
+        firestoreDatabase.collection("Posts").order(by: "date", descending: true).addSnapshotListener { (snapshot, error) in
             if error != nil {
                 print(error?.localizedDescription)
             } else {
@@ -47,10 +49,12 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
                     self.userEmailArray.removeAll(keepingCapacity: false)
                     self.userCaptionArray.removeAll(keepingCapacity: false)
                     self.likeArray.removeAll(keepingCapacity: false)
+                    self.documentIdArray.removeAll(keepingCapacity: false)
                     
                     // find documents with snapshot -- snapshot.documents gives an array of documents in the Posts collection
                     for document in snapshot!.documents {
                         let documentID = document.documentID
+                        self.documentIdArray.append(documentID)
                         
                         if let postedBy = document.get("postedBy") as? String {
                             self.userEmailArray.append(postedBy)
@@ -92,6 +96,7 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.likeLabel.text = String(likeArray[indexPath.row])
         cell.captionLabel.text = userCaptionArray[indexPath.row]
         cell.userImageView.sd_setImage(with: URL(string: self.userImageArray[indexPath.row]))
+        cell.documentIdLabel.text = documentIdArray[indexPath.row]
         return cell
     }
     
