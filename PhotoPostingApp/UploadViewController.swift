@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
@@ -39,6 +40,36 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     
 
     @IBAction func postButtonClicked(_ sender: Any) {
+        // Storage supports uploading and downloading objects -- use to upload photos
+        let storage = Storage.storage() // create storage instance
+        let storageReference = storage.reference() // create storage reference
+     
+        // .child means going one level below -- .child(name of folder in firebase Storage)
+        // if you add another .child after the first, it will create another folder within the first folder
+        let photosFolder = storageReference.child("photos")
+        
+        if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
+            
+            let imageReference = photosFolder.child("image.jpg")
+            imageReference.putData(data, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    print(error?.localizedDescription)
+                } else {
+                    
+                    imageReference.downloadURL { (url, error) in
+                        if error == nil {
+                            
+                            let imageURL = url?.absoluteString
+                            print(imageURL)
+                            
+                        }
+                    }
+                    
+                }
+            }
+            
+        }
+        
     }
     
 
